@@ -1,10 +1,12 @@
 package com.ideal.daggerstudy.activity
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import com.ideal.daggerstudy.R
-import javax.inject.Inject
+import com.ideal.daggerstudy.model.LoginModel
+import dagger.android.AndroidInjection
 
 /**
  * author : guoning
@@ -15,9 +17,9 @@ import javax.inject.Inject
 class LoginActivity : AppCompatActivity() {
 
 
-//    private  val loginModel: LoginModel by lazy {
-//        defaultViewModelProviderFactory.create(LoginModel::class.java)
-//    }
+    private  val loginModel: LoginModel by lazy {
+        defaultViewModelProviderFactory.create(LoginModel::class.java)
+    }
 
 
 
@@ -25,6 +27,7 @@ class LoginActivity : AppCompatActivity() {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
@@ -32,6 +35,9 @@ class LoginActivity : AppCompatActivity() {
 
         findViewById<Button>(R.id.btnLogin)
             .setOnClickListener {
+               // loginModel.login("","")
+                startActivity(Intent(this@LoginActivity,
+                    UserListActivity::class.java))
             }
     }
 

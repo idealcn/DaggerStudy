@@ -48,12 +48,25 @@ dependencies {
 //    implementation 'com.google.dagger:dagger-android-support:2.15' // if you use the support libraries
 //    kapt  'com.google.dagger:dagger-android-processor:2.15'
 
-    implementation deps.dagger.runtime
-    implementation deps.dagger.android
-    implementation deps.dagger.android_support
+//    implementation deps.dagger.runtime
+//    implementation deps.dagger.android
+//    implementation deps.dagger.android_support
+//
+//    kapt deps.dagger.android_support_compiler
+//    kapt deps.dagger.compiler
 
-    kapt deps.dagger.android_support_compiler
-    kapt deps.dagger.compiler
+    def version_dagger = "2.24"
+    implementation "com.google.dagger:dagger:$version_dagger"
+    kapt "com.google.dagger:dagger-compiler:$version_dagger"
+    implementation "com.google.dagger:dagger-android:$version_dagger"
+    implementation "com.google.dagger:dagger-android-support:$version_dagger" // if you use the support libraries
+    kapt "com.google.dagger:dagger-android-processor:$version_dagger"
+
+
+    implementation deps.room.runtime
+    kapt deps.room.compiler
+
+
 
     implementation deps.fragment.runtime
     implementation deps.fragment.runtime_ktx

@@ -1,5 +1,7 @@
 package com.ideal.daggerstudy.http
 
+import androidx.lifecycle.LiveData
+import com.ideal.daggerstudy.data.User
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
 import retrofit2.http.POST
@@ -18,4 +20,5 @@ interface HttpRequestService {
     @FormUrlEncoded
     @POST("")
     fun login(@Field("username") username: String,@Field("password") password: String)
+    : LiveData<ApiResponse<User>>
 }
