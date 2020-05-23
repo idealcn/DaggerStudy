@@ -8,6 +8,7 @@ import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjectionModule
 import dagger.android.support.AndroidSupportInjectionModule
+import javax.inject.Singleton
 
 /**
  * author : guoning
@@ -15,11 +16,13 @@ import dagger.android.support.AndroidSupportInjectionModule
  * email: gn18667130631@gmail.com
  * desc:
  */
+@Singleton
 @Component(modules = [AndroidInjectionModule::class,/*框架提供的必填*/
     AndroidSupportInjectionModule::class,/*框架提供的必填*/
     ActivityModule::class,
     FragmentModule::class,
-AppModule::class])
+AppModule::class
+   ])
 interface ApplicationComponent {
 
     @Component.Builder

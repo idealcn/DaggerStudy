@@ -14,7 +14,7 @@ import dagger.multibindings.IntoMap
  * 用于存放Activity的SubComponent
  */
 @Module(subcomponents = [LoginComponent::class, UserListComponent::class],
-    includes = [NetworkModule::class])
+    includes = [NetworkModule::class, ActivityViewModelModule::class])
 abstract class ActivityModule {
 
 //    @ContributesAndroidInjector
