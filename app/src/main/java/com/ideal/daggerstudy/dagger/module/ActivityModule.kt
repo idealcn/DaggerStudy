@@ -1,12 +1,14 @@
 package com.ideal.daggerstudy.dagger.module
 
 import com.ideal.daggerstudy.activity.LoginActivity
+import com.ideal.daggerstudy.activity.MainActivity
 import com.ideal.daggerstudy.dagger.component.LoginComponent
 import com.ideal.daggerstudy.activity.UserListActivity
 import com.ideal.daggerstudy.dagger.component.UserListComponent
 import dagger.Binds
 import dagger.Module
 import dagger.android.AndroidInjector
+import dagger.android.ContributesAndroidInjector
 import dagger.multibindings.ClassKey
 import dagger.multibindings.IntoMap
 
@@ -23,6 +25,8 @@ abstract class ActivityModule {
 
 
 
+    @ContributesAndroidInjector(modules = [UserListModule::class])
+    abstract fun contributeMainActivity() : MainActivity
 
 
     @Binds

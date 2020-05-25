@@ -44,7 +44,7 @@ class LoginActivity : AppCompatActivity() {
             .setOnClickListener {
                // loginModel.login("","")
                 startActivity(Intent(this@LoginActivity,
-                    UserListActivity::class.java))
+                    MainActivity::class.java))
             }
     }
 
